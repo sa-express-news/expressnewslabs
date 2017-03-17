@@ -1,8 +1,7 @@
 from __future__ import unicode_literals
-
 from django.db import models
-
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 
 class Post(models.Model):
@@ -22,3 +21,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class HomepageFeature(models.Model):
+    author = models.ForeignKey('auth.User')
+    title = models.CharField(max_length=200)
+    posts = models.ForeignKey(Post)
