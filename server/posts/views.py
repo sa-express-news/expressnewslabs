@@ -1,3 +1,21 @@
-from django.shortcuts import render
+from posts.models import Post, HomepageFeature
+from posts.serializers import PostSerializer, HomepageFeatureSerializer
 
-# Create your views here.
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
+
+
+class PostViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    This viewset automatically provides `list` and `detail` actions.
+    """
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class HomepageFeatureViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    This viewset automatically provides `list` and `detail` actions.
+    """
+    queryset = HomepageFeature.objects.all()
+    serializer_class = HomepageFeatureSerializer
