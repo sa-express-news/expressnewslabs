@@ -23,4 +23,4 @@ class HomepageFeatureSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HomepageFeature
-        fields = ('id', 'title', 'post')
+        fields = ('id', 'title', 'post', 'slug',)

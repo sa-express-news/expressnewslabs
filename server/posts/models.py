@@ -36,12 +36,13 @@ class Post(models.Model):
         return self.title
 
     class Meta:
-        ordering = ('id',)
+        ordering = ('-created_date',)
 
 
 class HomepageFeature(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
+    slug = models.CharField(max_length=200)
     post = models.ForeignKey(Post)
 
     def __str__(self):
