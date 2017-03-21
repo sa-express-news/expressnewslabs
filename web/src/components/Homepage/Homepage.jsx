@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import actions from '../../actions';
 
 import PageWrapper from '../PageWrapper/PageWrapper';
-import HomepageUI from './HomepageUI';
+import PageTemplate from '../PageTemplate/PageTemplate';
 
 class Homepage extends PageWrapper {
   constructor(props) {
@@ -27,7 +27,7 @@ class Homepage extends PageWrapper {
   render() {
     const {featuredPosts, standardPosts} = this.state;
     return (
-        <HomepageUI 
+        <PageTemplate 
             featuredPosts={featuredPosts}
             standardPosts={standardPosts}
         />
