@@ -27,10 +27,10 @@ class Homepage extends PageWrapper {
   render() {
     const {featuredPosts, standardPosts} = this.state;
     return (
-        <PageTemplate 
-            featuredPosts={featuredPosts}
-            standardPosts={standardPosts}
-        />
+      <PageTemplate 
+        featuredPosts={featuredPosts}
+        standardPosts={standardPosts}
+      />
     );
   }
 }

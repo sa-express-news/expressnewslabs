@@ -1,0 +1,15 @@
+.content-wrapper {
+  width: 80%;
+  margin: 0 auto;
+
+  .standard-post-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .grid-list {
+      width: 100%;
+      overflow-y: auto;
+    }
+  }
+}
