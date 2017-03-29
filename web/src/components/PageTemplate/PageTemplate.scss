@@ -1,15 +1,72 @@
+@import 'src/utils/styles/mixins.scss';
+
 .content-wrapper {
-  width: 80%;
+  width: 100%;
+  max-width: 1080px;
   margin: 0 auto;
+  padding: 0 40px;
 
   .standard-post-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: inline-block;
+    width: 100%;
+    margin-top: 40px;
+    position: relative;
 
-    .grid-list {
+    .post {
+      float: left;
+      margin: 0 0 80px 0;
       width: 100%;
-      overflow-y: auto;
+      vertical-align: top;
+
+      @include breakpoint(tablet) {
+        min-height: 370px;
+        width: 48%;
+
+        &:nth-child(2n) {
+          margin-left: 4%;
+        }
+      }
+
+      @include breakpoint(desktop) {
+        width: 30%;
+
+        &:nth-child(2n) {
+          margin-left: 0;
+        }
+
+        &:nth-child(3n),
+        &:nth-child(3n-1) {
+          margin-left: 5%;
+        }
+      }
+
+      a {
+        display: block;
+      }
+
+      .image {
+        transition: opacity .2s ease-out;
+        height: auto;
+        width: 100%;
+      }
+
+      .title {
+        float: left;
+        width: 100%;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        text-transform: uppercase;
+        margin: 15px 0 5px;
+        color: #000;
+      }
+
+      .excerpt {
+        font-size: 14px;
+        line-height: 20px;
+        color: #666;
+        width: 100%;
+      }
     }
   }
 }

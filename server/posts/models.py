@@ -8,14 +8,23 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
+    story_link = models.URLField(
+        max_length=1999,
+        verbose_name='Story Link'
+    )
     main_img_url = models.URLField(
-    	max_length=1999,
-    	verbose_name='Image URL'
+        max_length=1999,
+        verbose_name='Image URL'
     )
     splash_img_url = models.URLField(
     	max_length=1999,
     	verbose_name='Splash Image URL',
     	blank=True
+    )
+    gif_url = models.URLField(
+        max_length=1999,
+        verbose_name='GIF URL',
+        blank=True
     )
     iframe_url = models.URLField(
     	max_length=1999,
