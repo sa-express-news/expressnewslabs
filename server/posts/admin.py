@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, HomepageFeature
+from .models import Post, HomepageFeature, Image
 
 
 class LimitHPFeatures(admin.ModelAdmin):
@@ -10,10 +10,11 @@ class LimitHPFeatures(admin.ModelAdmin):
   		else:
   			return True
 
-  	def get_readonly_fields(self, request, obj=None):
-  		if obj:
-  			return self.readonly_fields + ('title','slug')
-  		return self.readonly_fields
+	def get_readonly_fields(self, request, obj=None):
+		if obj:
+			return self.readonly_fields + ('title','slug')
+		return self.readonly_fields
 
 admin.site.register(Post)
 admin.site.register(HomepageFeature, LimitHPFeatures)
+admin.site.register(Image)

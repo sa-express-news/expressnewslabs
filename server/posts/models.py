@@ -21,11 +21,6 @@ class Post(models.Model):
     	verbose_name='Splash Image URL',
     	blank=True
     )
-    gif_url = models.URLField(
-        max_length=1999,
-        verbose_name='GIF URL',
-        blank=True
-    )
     iframe_url = models.URLField(
     	max_length=1999,
     	verbose_name="iFrame URL",
@@ -45,7 +40,7 @@ class Post(models.Model):
         return self.title
 
     class Meta:
-        ordering = ('-created_date',)
+        ordering = ('-published_date', '-created_date',)
 
 
 class HomepageFeature(models.Model):
@@ -58,4 +53,16 @@ class HomepageFeature(models.Model):
         return self.title
 
     class Meta:
-        ordering = ('id',)
+        ordering = ('-id',)
+
+
+class Image(models.Model):
+    title = models.CharField(max_length=200)
+    upload_img = models.FileField(
+        upload_to='uploads/images/',
+        blank=True,
+        verbose_name='Image Uploader'
+    )
+
+    def __str__(self):
+        return self.title

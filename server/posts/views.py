@@ -10,7 +10,7 @@ class PostViewSet(viewsets.ReadOnlyModelViewSet):
     """
     This viewset automatically provides `list` and `detail` actions.
     """
-    queryset = Post.objects.all()
+    queryset = Post.objects.exclude(published_date__isnull=True)
     serializer_class = PostSerializer
 
 class HomepageFeatureViewSet(viewsets.ReadOnlyModelViewSet):
