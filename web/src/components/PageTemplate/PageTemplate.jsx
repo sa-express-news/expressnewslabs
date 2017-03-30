@@ -11,7 +11,7 @@ export default props => {
         {_.map(standardPosts, post => (
           <div key={post.id} className="post">
             <a href={post.story_link} target="_blank">
-              <img className="image" src={post.main_img_url} />
+              <div className="image"><img src={post.main_img_url} /></div>
               <div className="title">{post.title}</div>
             </a>
             <div className="excerpt">{post.description}</div>

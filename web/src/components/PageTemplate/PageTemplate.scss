@@ -44,10 +44,47 @@
         display: block;
       }
 
+      .image, .image img {
+        width: 100%;
+      }
+
       .image {
         transition: opacity .2s ease-out;
-        height: auto;
-        width: 100%;
+
+        /**
+         * All the nested image code below is stolen from .img-crop gist.
+         * Forces image to 4:3 aspect ratio cropping at the middle.
+         * http://dabblet.com/gist/4711695
+         */
+        background-color: #fff; // #ededed; /* some background color for short images */
+        overflow: hidden;
+        
+        /* remove white-space for inline-block elements */
+        letter-spacing: -0.31em; /* webkit */
+        *letter-spacing: normal; /* reset IE < 8 */
+        word-spacing: -0.43em; /* IE < 8 && gecko */
+
+        &:before,
+        img {
+          /* vertically center the image */
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        &:before {
+          /* pseudo element to vertically align image to */
+          content: "";
+          
+          /* Magic Number */
+          /* Set this to your desired height(to width) ratio */
+          padding-top: 75%; /* % of original image width */ 
+        }
+
+        img {
+          /* removes(sorta) image from the flow */
+          padding-left: 100%;
+          margin: -999em -100%;
+        }
       }
 
       .title {
