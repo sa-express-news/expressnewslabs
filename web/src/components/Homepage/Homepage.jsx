@@ -25,7 +25,8 @@ class Homepage extends PageWrapper {
   }
 
   render() {
-    const {featuredPosts, standardPosts} = this.state;
+    const { featuredPosts, standardPosts } = this.state;
+
     return (
       <PageTemplate 
         featuredPosts={featuredPosts}
