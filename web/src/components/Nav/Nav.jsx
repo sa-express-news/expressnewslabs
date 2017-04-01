@@ -1,19 +1,33 @@
 import React from 'react';
-import { Toolbar } from 'material-ui/Toolbar';
+import AppBar from 'material-ui/AppBar';
 
-const getStyles = () => {
+const getStyles = (background) => {
 	return {
 		main: {
-			background: '#333',
-			marginBottom: 40,
-		}
+			background: background,
+			boxShadow: 'none',
+			position: 'fixed',
+		},
+		titleStyle: {
+			fontSize: 20,
+			fontWeight: 300,
+			textAlign: 'center',
+		},
+		iconStyleLeft: {
+			marginTop: 7,
+		},
 	};
 };
 
 export default props => {
-	const styles = getStyles();
+	const styles = getStyles(props.background);
 
 	return (
-		<Toolbar style={styles.main}></Toolbar>
+		 <AppBar
+		 	style={styles.main}
+	    title="Express News Labs"
+	    titleStyle={styles.titleStyle}
+	    iconStyleLeft={styles.iconStyleLeft}
+	  />
 	);
 }

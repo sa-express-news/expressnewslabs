@@ -5,6 +5,7 @@ import actions from '../../actions';
 
 import PageWrapper from '../PageWrapper/PageWrapper';
 import PageTemplate from '../PageTemplate/PageTemplate';
+import SplashTemplate from '../SplashTemplate/SplashTemplate';
 
 class Homepage extends PageWrapper {
   constructor(props) {
@@ -28,10 +29,16 @@ class Homepage extends PageWrapper {
     const { featuredPosts, standardPosts } = this.state;
 
     return (
-      <PageTemplate 
-        featuredPosts={featuredPosts}
-        standardPosts={standardPosts}
-      />
+      <div>
+        <SplashTemplate post={featuredPosts.first} />
+        <PageTemplate 
+          subfeatures={[
+            featuredPosts.second,
+            featuredPosts.third
+          ]}
+          standardPosts={standardPosts}
+        />
+      </div>
     );
   }
 }

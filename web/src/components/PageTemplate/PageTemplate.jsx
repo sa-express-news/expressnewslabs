@@ -3,8 +3,7 @@ import _ from 'lodash';
 import './PageTemplate.scss';
 
 export default props => {
-  const { featuredPosts, standardPosts } = props;
-  const subfeatures = [ featuredPosts.second, featuredPosts.third ];
+  const { subfeatures, standardPosts } = props;
 
   return (
     <div className="lists-wrapper">
